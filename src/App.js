@@ -19,6 +19,9 @@ function App() {
     }
   };
   const deleteFirstPlaceholder = () => {
+    let arr = [firstColumnPlaceholder];
+    let fullArr = [];
+    setFirstColumn(fullArr.concat(arr, firstColumn));
     setFirstColumnPlaceholder([]);
   };
 

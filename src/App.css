@@ -39,7 +39,7 @@
 
 .content {
   width: 100%;
-  height: 100vh;
+  height: 300px;
   display: flex;
 
   justify-content: center;
@@ -57,7 +57,7 @@
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -75,5 +75,7 @@
 }
 
 .firstColumnPlaceholder {
-  cursor: pointer;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border: 1px solid red;
 }

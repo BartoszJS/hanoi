@@ -77,7 +77,18 @@ function App() {
           <div className='bg-green-700 w-[40px]'>{firstColumnPlaceholder}</div>
         )}
       </div>
-      <div className='content'>
+      <div className='flex justify-center items-end '>
+        <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-2 h-[100px] bg-slate-600'></div>
+        </div>
+        <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-2 h-[100px] bg-slate-600'></div>
+        </div>
+        <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-2 h-[100px] bg-slate-600'></div>
+        </div>
+      </div>
+      <div className='content translate-y-[-300px]'>
         <div className='content-holder'>
           <div
             onClick={() => handleFirstPlaceholder(firstColumn)}
@@ -114,13 +125,6 @@ function App() {
             ))}
           </div>
         </div>
-      </div>
-      <div className='flex justify-center items-center'>
-        <div className='width-[200px] height-[300px] border border-red-400'>
-          da
-        </div>
-        <div className='width-[200px] height-[300px]'>ds </div>
-        <div className='width-[200px] height-[300px]'>sd </div>
       </div>
     </div>
   );

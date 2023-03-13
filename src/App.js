@@ -81,7 +81,7 @@ function App() {
         <div className='content-holder'>
           <div
             onClick={() => handleFirstPlaceholder(firstColumn)}
-            className='singleColumn cursor-pointer cursor-pointer'
+            className='singleColumn cursor-pointer'
           >
             {firstColumn.map((value) => (
               <div className={` column${value}`} key={value}>
@@ -114,6 +114,13 @@ function App() {
             ))}
           </div>
         </div>
+      </div>
+      <div className='flex justify-center items-center'>
+        <div className='width-[200px] height-[300px] border border-red-400'>
+          da
+        </div>
+        <div className='width-[200px] height-[300px]'>ds </div>
+        <div className='width-[200px] height-[300px]'>sd </div>
       </div>
     </div>
   );

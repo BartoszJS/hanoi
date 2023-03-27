@@ -67,14 +67,20 @@ function App() {
   return (
     <div className='App'>
       <div className='firstColumnPlaceholder flex h-[40px] justify-center items-center'>
-        {firstColumnPlaceholder == 1 && (
-          <div className='bg-blue-600 w-[20px]'>{firstColumnPlaceholder}</div>
+        {firstColumnPlaceholder === 1 && (
+          <div className='bg-blue-600 w-[20px] rounded'>
+            {firstColumnPlaceholder}
+          </div>
         )}
-        {firstColumnPlaceholder == 2 && (
-          <div className='bg-yellow-400 w-[30px]'>{firstColumnPlaceholder}</div>
+        {firstColumnPlaceholder === 2 && (
+          <div className='bg-yellow-400 w-[30px] rounded'>
+            {firstColumnPlaceholder}
+          </div>
         )}
-        {firstColumnPlaceholder == 3 && (
-          <div className='bg-green-700 w-[40px]'>{firstColumnPlaceholder}</div>
+        {firstColumnPlaceholder === 3 && (
+          <div className='bg-green-700 w-[40px] rounded'>
+            {firstColumnPlaceholder}
+          </div>
         )}
       </div>
       <div className='flex justify-center items-end '>
@@ -92,10 +98,10 @@ function App() {
         <div className='content-holder'>
           <div
             onClick={() => handleFirstPlaceholder(firstColumn)}
-            className='singleColumn cursor-pointer'
+            className='singleColumn border-l-2 border-r-2 cursor-pointer'
           >
             {firstColumn.map((value) => (
-              <div className={` column${value}`} key={value}>
+              <div className={` column${value} rounded`} key={value}>
                 {value}
               </div>
             ))}
@@ -104,10 +110,10 @@ function App() {
         <div className='content-holder'>
           <div
             onClick={() => handleSecondPlaceholder(secondColumn)}
-            className='singleColumn cursor-pointer'
+            className='singleColumn border-r-2 cursor-pointer'
           >
             {secondColumn.map((value) => (
-              <div className={`column${value}`} key={value}>
+              <div className={`column${value} rounded`} key={value}>
                 {value}
               </div>
             ))}
@@ -116,16 +122,17 @@ function App() {
         <div className='content-holder'>
           <div
             onClick={() => handleThirdPlaceholder(thirdColumn)}
-            className='singleColumn cursor-pointer'
+            className='singleColumn border-r-2 cursor-pointer'
           >
             {thirdColumn.map((value) => (
-              <div className={`column${value}`} key={value}>
+              <div className={`column${value} rounded`} key={value}>
                 {value}
               </div>
             ))}
           </div>
         </div>
       </div>
+      <div className='w-full border-t-8 border-slate-600 translate-y-[-300px]'></div>
     </div>
   );
 }

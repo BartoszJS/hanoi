@@ -148,7 +148,7 @@ function App() {
           <div className='text-2xl '>{formatTime(time)}</div>
 
           <button onClick={handleReset}>Reset</button>
-          {record !== 9999999 ? record : ""}
+          {record !== 9999999 ? "Rekord:" + record : "Rekord: -"}
         </div>
         <div className='firstColumnPlaceholder flex h-[40px] justify-center items-center'>
           {firstColumnPlaceholder === 1 && (

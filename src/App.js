@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useRef, useEffect } from "react";
 
 function App() {
-  const initialState = [1, 2, 3];
+  const initialState = [1, 2, 3, 4, 5];
   const [firstColumn, setFirstColumn] = useState(initialState);
   const [firstColumnPlaceholder, setFirstColumnPlaceholder] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
@@ -178,18 +178,18 @@ function App() {
           )}
         </div>
         <div className='flex justify-center items-end '>
-          <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-[33vw] h-[300px] flex justify-center items-end '>
             <div className='w-2 h-[150px] bg-slate-600'></div>
           </div>
-          <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-[33vw] h-[300px] flex justify-center items-end'>
             <div className='w-2 h-[150px] bg-slate-600'></div>
           </div>
-          <div className='w-[200px] h-[300px] flex justify-center items-end'>
+          <div className='w-[33vw] h-[300px] flex justify-center items-end'>
             <div className='w-2 h-[150px] bg-slate-600'></div>
           </div>
         </div>
-        <div className='content translate-y-[-300px]'>
-          <div className='content-holder'>
+        <div className='content translate-y-[-300px]  '>
+          <div className='content-holder '>
             <div
               onClick={() => {
                 handleFirstPlaceholder(firstColumn);

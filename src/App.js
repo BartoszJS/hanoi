@@ -72,7 +72,7 @@ function App() {
   };
   const handleFirstPlaceholder = (firstColumn) => {
     if (firstColumnPlaceholder.length === 0) {
-      if (firstColumn) {
+      if (firstColumn.length !== 0) {
         setFirstColumnPlaceholder(firstColumn[0]);
         firstColumn.shift();
       }
@@ -90,7 +90,7 @@ function App() {
 
   const handleSecondPlaceholder = (secondColumn) => {
     if (firstColumnPlaceholder.length === 0) {
-      if (secondColumn) {
+      if (secondColumn.length !== 0) {
         setFirstColumnPlaceholder(secondColumn[0]);
         secondColumn.shift();
       }
@@ -108,7 +108,7 @@ function App() {
   };
   const handleThirdPlaceholder = (thirdColumn) => {
     if (firstColumnPlaceholder.length === 0) {
-      if (thirdColumn) {
+      if (thirdColumn.length !== 0) {
         setFirstColumnPlaceholder(thirdColumn[0]);
         thirdColumn.shift();
       }

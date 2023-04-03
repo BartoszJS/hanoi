@@ -3,13 +3,14 @@ import "./App.css";
 import { useState, useRef, useEffect } from "react";
 
 function App() {
-  const initialState = [1, 2, 3, 4, 5];
+  const [initialState, setInitialState] = useState([1, 2, 3, 4, 5]);
   const [firstColumn, setFirstColumn] = useState(initialState);
   const [firstColumnPlaceholder, setFirstColumnPlaceholder] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
   const [thirdColumn, setThirdColumn] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [record, setRecord] = useState(9999999);
+  const [showQuantity, setShowQuantity] = useState(false);
 
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -40,12 +41,17 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    setFirstColumn(initialState);
+    console.log(initialState);
+  }, [initialState]);
+
   const handleReset = () => {
-    setTime(0);
-    handleStop();
     setFirstColumn(initialState);
     setThirdColumn([]);
     setSecondColumn([]);
+    setTime(0);
+    handleStop();
   };
   const handleResetFinish = () => {
     setTime(0);
@@ -74,11 +80,12 @@ function App() {
     if (firstColumnPlaceholder.length === 0) {
       if (firstColumn.length !== 0) {
         setFirstColumnPlaceholder(firstColumn[0]);
-        firstColumn.shift();
+        setFirstColumn((prevArray) => prevArray.slice(1));
       }
     } else {
       let arr = [firstColumnPlaceholder];
       let fullArr = [];
+      console.log(initialState);
       if (firstColumnPlaceholder > firstColumn[0]) {
         alert("Nie możesz położyć większego na mniejszy");
       } else {
@@ -88,11 +95,15 @@ function App() {
     }
   };
 
+  const chooseQuantity = () => {
+    setShowQuantity(true);
+  };
+
   const handleSecondPlaceholder = (secondColumn) => {
     if (firstColumnPlaceholder.length === 0) {
       if (secondColumn.length !== 0) {
         setFirstColumnPlaceholder(secondColumn[0]);
-        secondColumn.shift();
+        setSecondColumn((prevArray) => prevArray.slice(1));
       }
     } else {
       let arr = [firstColumnPlaceholder];
@@ -110,7 +121,7 @@ function App() {
     if (firstColumnPlaceholder.length === 0) {
       if (thirdColumn.length !== 0) {
         setFirstColumnPlaceholder(thirdColumn[0]);
-        thirdColumn.shift();
+        setThirdColumn((prevArray) => prevArray.slice(1));
       }
     } else {
       let arr = [firstColumnPlaceholder];
@@ -143,18 +154,106 @@ function App() {
           </div>
         </div>
       )}
+      {showQuantity && (
+        <div className='absolute z-10 w-full h-full bg-black/50 flex justify-center items-center'>
+          <div className='w-[250px] h-[250px] bg-white flex flex-col justify-center items-center'>
+            Wybierz ilość:
+            <button
+              onClick={() => {
+                setInitialState([1, 2, 3]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+              className='bg-green-700 px-4 rounded m-1'
+            >
+              3
+            </button>
+            <button
+              className='bg-red-600 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              4
+            </button>
+            <button
+              className='bg-purple-500 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4, 5]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              5
+            </button>
+            <button
+              className='bg-orange-500 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4, 5, 6]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              6
+            </button>
+            <button
+              className='bg-green-400 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4, 5, 6, 7]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              7
+            </button>
+            <button
+              className='bg-lime-300 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4, 5, 6, 7, 8]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              8
+            </button>
+            <button
+              className='bg-slate-400 px-4 rounded m-1'
+              onClick={() => {
+                setInitialState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+                setShowQuantity(false);
+                handleReset();
+              }}
+            >
+              9
+            </button>
+          </div>
+        </div>
+      )}
       <div>
-        <div className='pt-10 flex flex-col justify-center items-center'>
-          <h1 className='text-3xl'>Wieża hanoi</h1>
-          <div className='text-2xl '>{formatTime(time)}</div>
+        <div className='pt-10 flex justify-center items-center'>
+          <div className='flex flex-col text-left  border-t border-b w-full justify-start items-center h-24'>
+            <h1 className='text-3xl'>Wieża hanoi</h1>
+            <div className='flex'>
+              <div className='text-2xl w-[100px]'>{formatTime(time)}</div>
 
-          <button
-            className='bg-pink-400 px-2 rounded text-xl'
-            onClick={handleReset}
-          >
-            Reset
-          </button>
-          {record !== 9999999 ? "Rekord:" + record : "Rekord: ukończ choć raz"}
+              <button
+                className='bg-pink-400 px-2 rounded text-xl ml-2'
+                onClick={() => {
+                  handleReset();
+                }}
+              >
+                Reset
+              </button>
+            </div>
+            {record !== 9999999 ? "Rekord:" + record : "Rekord: ---"}
+          </div>
+          <div className='w-full flex justify-center items-start border-t border-b h-24'>
+            <button className='pt-2' onClick={chooseQuantity}>
+              Wybierz ilość klocuchów
+            </button>
+          </div>
         </div>
         <div className='firstColumnPlaceholder flex h-[40px] justify-center items-center'>
           {firstColumnPlaceholder === 1 && (
@@ -179,6 +278,26 @@ function App() {
           )}
           {firstColumnPlaceholder === 5 && (
             <div className='bg-purple-500 w-[40px] rounded'>
+              {firstColumnPlaceholder}
+            </div>
+          )}
+          {firstColumnPlaceholder === 6 && (
+            <div className='bg-orange-500 w-[40px] rounded'>
+              {firstColumnPlaceholder}
+            </div>
+          )}
+          {firstColumnPlaceholder === 7 && (
+            <div className='bg-green-400 w-[40px] rounded'>
+              {firstColumnPlaceholder}
+            </div>
+          )}
+          {firstColumnPlaceholder === 8 && (
+            <div className='bg-lime-300 w-[40px] rounded'>
+              {firstColumnPlaceholder}
+            </div>
+          )}
+          {firstColumnPlaceholder === 9 && (
+            <div className='bg-slate-400 w-[40px] rounded'>
               {firstColumnPlaceholder}
             </div>
           )}

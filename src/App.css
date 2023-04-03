@@ -37,6 +37,14 @@
   width: 40px;
   background-color: rgb(21, 128, 61);
 }
+.column4 {
+  width: 50px;
+  background-color: rgb(220, 38, 38);
+}
+.column5 {
+  width: 60px;
+  background-color: rgb(168, 85, 247);
+}
 
 .firstColumnPlaceholder {
   padding-top: 100px;

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/hanoi/static/css/main.396afe88.css",
-    "main.js": "/hanoi/static/js/main.7b1f91ab.js",
+    "main.css": "/hanoi/static/css/main.ba162ffb.css",
+    "main.js": "/hanoi/static/js/main.20d8adc8.js",
     "static/js/787.8b130ec0.chunk.js": "/hanoi/static/js/787.8b130ec0.chunk.js",
     "static/media/logo.svg": "/hanoi/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/hanoi/index.html",
-    "main.396afe88.css.map": "/hanoi/static/css/main.396afe88.css.map",
-    "main.7b1f91ab.js.map": "/hanoi/static/js/main.7b1f91ab.js.map",
+    "main.ba162ffb.css.map": "/hanoi/static/css/main.ba162ffb.css.map",
+    "main.20d8adc8.js.map": "/hanoi/static/js/main.20d8adc8.js.map",
     "787.8b130ec0.chunk.js.map": "/hanoi/static/js/787.8b130ec0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.396afe88.css",
-    "static/js/main.7b1f91ab.js"
+    "static/css/main.ba162ffb.css",
+    "static/js/main.20d8adc8.js"
   ]
 }

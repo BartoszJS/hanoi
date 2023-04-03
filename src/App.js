@@ -145,10 +145,16 @@ function App() {
       )}
       <div>
         <div className='pt-10 flex flex-col justify-center items-center'>
+          <h1 className='text-3xl'>Wieża hanoi</h1>
           <div className='text-2xl '>{formatTime(time)}</div>
 
-          <button onClick={handleReset}>Reset</button>
-          {record !== 9999999 ? "Rekord:" + record : "Rekord: -"}
+          <button
+            className='bg-pink-400 px-2 rounded text-xl'
+            onClick={handleReset}
+          >
+            Reset
+          </button>
+          {record !== 9999999 ? "Rekord:" + record : "Rekord: ukończ choć raz"}
         </div>
         <div className='firstColumnPlaceholder flex h-[40px] justify-center items-center'>
           {firstColumnPlaceholder === 1 && (

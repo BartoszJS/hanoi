@@ -48,6 +48,7 @@ function App() {
 
   const handleReset = () => {
     setFirstColumn(initialState);
+    setFirstColumnPlaceholder([]);
     setThirdColumn([]);
     setSecondColumn([]);
     setTime(0);
@@ -56,6 +57,7 @@ function App() {
   const handleResetFinish = () => {
     setTime(0);
     handleStopFinish();
+    setFirstColumnPlaceholder([]);
     setFirstColumn(initialState);
     setThirdColumn([]);
     setSecondColumn([]);
